@@ -21,28 +21,29 @@ class Game
     puts "#{@current_player.name}: What is #{variable_1} plus #{variable_2}?"
 
     # collect answer from player
+    print "Answer: "
     answer = gets.chomp
 
     # check to see if it's correct, if not, decrement the lives
     if answer.to_i == sum
-      puts "YES! You are correct"
+      puts "\nYES! You are correct"
       puts "P1: #{@player_1.lives}/3 vs P2: #{@player_2.lives}/3" 
     else 
-      puts "Really? -1 life for you"
       @current_player.lose_a_life
+      puts "Really? -1 life for you"
       puts "P1: #{@player_1.lives}/3 vs P2: #{@player_2.lives}/3"
     end
     change_player
   end
 
   def play_game
-    while @player_1.lives > 0 && @player_2.lives > 0
-      puts "----- NEW TURN -----"
+    while @player_1.lives > 0 && @player_2.lives > 0 do
+      puts "\n----- NEW TURN -----\n"
       ask_question
     end
 
     puts "#{@current_player.name} wins with a score of #{@current_player.lives}/3"
-    puts "----- GAME OVER -----"
+    puts "\n----- GAME OVER -----\n"
     puts "Good bye!"
 
   end

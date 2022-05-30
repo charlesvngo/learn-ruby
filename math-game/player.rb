@@ -1,4 +1,5 @@
 class Player
+
   attr_reader :name
   attr_reader :lives
 
@@ -10,4 +11,5 @@ class Player
   def lose_a_life
     @lives -= 1
   end
+
 end

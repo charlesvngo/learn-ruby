@@ -6,6 +6,31 @@ The game doesn’t end until one of the players loses all their lives. At this p
 
 ### Nouns for Classes
 
-Player 1 - A player in the game. Has 3 lives and answers questions against another player
-Player 2 
-Turn - determines the current player. Generates the questions.
+Player  - A player in the game. Has 3 lives and answers questions against another player
+Game - determines the current player. Generates the questions.
+
+
+player 
+  attr_reader :name, :lives
+
+  name: player 
+  lives: 3
+
+  def lose_a_life
+    lives - 1
+  end
+
+
+
+game
+  init
+    player 1
+    player 2
+    current_player
+
+  def change_player
+    if player 1
+      current_player is now player 2
+    else
+      current_player is now player 1
+
