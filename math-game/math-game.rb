@@ -1,13 +1,3 @@
-class Player
-  attr_reader :name
-  attr_accessor :lives
-
-  def initialize (name)
-    @name = name
-    @lives = 3
-  end
-end
-
 class Game 
   def initialize (player_1, player_2)
     @player_1 = player_1
@@ -39,14 +29,13 @@ class Game
       puts "P1: #{@player_1.lives}/3 vs P2: #{@player_2.lives}/3" 
     else 
       puts "Really? -1 life for you"
-      @current_player.lives -= 1
+      @current_player.lose_a_life
       puts "P1: #{@player_1.lives}/3 vs P2: #{@player_2.lives}/3"
     end
     change_player
   end
 
   def play_game
-
     while @player_1.lives > 0 && @player_2.lives > 0
       puts "----- NEW TURN -----"
       ask_question
@@ -59,9 +48,3 @@ class Game
   end
 
 end
-
-player_1 = Player.new("Player 1")
-player_2 = Player.new("Player 2")
-
-game = Game.new(player_1, player_2)
-game.play_game
